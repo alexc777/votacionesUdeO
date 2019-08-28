@@ -1,0 +1,93 @@
+.boxdata_container {
+  float: left;
+  width: 100%;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.boxdata_cardcontainer {
+  float: left;
+  width: 100%;
+  padding: 0;
+
+  @include grid('.boxdata_item', 1 2 4 4);
+
+  .boxdata_item {
+    float: left;
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.08);
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+
+    .card_img {
+      float: left;
+
+      img {
+        border: none;
+        border-bottom: none;
+        display: block;
+        border-radius: .25rem .25rem 0 0;
+      }
+    }
+
+    .card__content {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      font-size: var(--text);
+      padding: 1rem;
+
+      .card__title {
+        float: left;
+        width: 100%;
+
+        h2 {
+          font-size: var(--title);
+          margin-bottom: 8px;
+          font-weight: 700;
+          color: var(--negro);
+        }
+      }
+
+      .card__body {
+        margin-bottom: 1rem;
+
+        p {
+          font-size: var(--text);
+          font-weight: normal;
+          text-align: left;
+          color: var(--negro);
+        }
+      }
+
+      .card__foter {
+        margin-top: auto;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        font-size: var(--sub_text);
+        border-top: 1px solid #dfe0e0;
+        padding-top: 1rem;
+
+
+        .btn_proyecto {
+          @include edgridButton($marron,$negro,radius);
+          color: var(--rojo);
+          background: none;
+          border: 1px solid var(--rojo);
+
+          &:hover {
+            color: var(--blanco);
+            background: var(--rojo);
+          }
+        }
+      }
+    }
+  }
+}

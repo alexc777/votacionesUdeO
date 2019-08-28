@@ -1,0 +1,82 @@
+@mixin btnPagalo($font-size) {
+   float: left;
+   background: #fff;
+   border: 1px solid #eee !important;
+   font-weight: bold !important;
+   font-size: $font-size !important;
+   letter-spacing: 0.5px;
+   color: #2942A9;
+   box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.08);
+
+   &:active {
+      box-shadow: none !important;
+      outline: none !important;
+   }
+
+   &:focus {
+      color: #2942A9 !important;
+      outline: none !important;
+   }
+
+   &:hover {
+      background: #2942a9;
+      color: #fff !important;
+   }
+}
+
+@mixin btnPoductos($font-size) {
+   float: left;
+   background: #fff;
+   border: 1px solid #eee !important;
+   font-weight: normal !important;
+   font-size: $font-size !important;
+   letter-spacing: 0.01em;
+   color: var(--negro);
+   box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.08);
+   padding: 10px 15px;
+   border-radius: 5px;
+
+   &:active {
+      box-shadow: none !important;
+      outline: none !important;
+   }
+
+   &:focus {
+      color: var(--negro) !important;
+      outline: none !important;
+   }
+
+   &:hover {
+      background: var(--bg-azul);
+      color: var(--blanco) !important;
+   }
+}
+
+@mixin btnAyuda($font-size) {
+   float: left;
+   background: var(--bg-azul);
+   border: none;
+   font-weight: 400 !important;
+   font-size: $font-size !important;
+   letter-spacing: 0.5px;
+   color: var(--blanco);
+   box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.08);
+   padding: 10px 15px;
+   border-radius: 5px;
+
+   &:active {
+      box-shadow: none !important;
+      outline: none !important;
+      color: var(--blanco);
+   }
+
+   &:focus {
+      color: var(--blanco) !important;
+      outline: none !important;
+   }
+
+   &:hover {
+      background: var(--blanco);
+      color: var(--morado) !important;
+   }
+}

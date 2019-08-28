@@ -1,0 +1,37 @@
+.box_chart {
+  float: left;
+  width: 100%;
+  min-height: 150px;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 2px 2px 15px 0px rgba(0, 0, 0, 0.08);
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  padding: 8px;
+  margin-bottom: 20px;
+
+  .title_chart {
+    float: left;
+    width: 100%;
+
+    h3 {
+      float: left;
+      width: 100%;
+      margin: 0;
+      font-size: var(--sub_title);
+      color: var(--negro);
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  }
+
+  .body_chart {
+    float: left;
+    width: 100%;
+    margin-top: 5px;
+    overflow: hidden;
+  }
+}

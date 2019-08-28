@@ -1,0 +1,13 @@
+.spi {
+  padding-left: 0 !important;
+}
+
+.spd {
+  padding-right: 0 !important;
+}
+
+.sp_phone {
+  @include to(m) {
+    padding: 0 !important;
+  }
+}

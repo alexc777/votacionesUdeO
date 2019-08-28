@@ -1,0 +1,114 @@
+.menulateral {
+  float: left;
+  width: 13%;
+  transition: width .4s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  position: fixed;
+  left: 0;
+  min-height: 100%;
+  z-index: 100;
+  background: var(--blanco);
+  box-shadow: 0 7px 14px 0 rgba(50, 50, 93, 0.1), 0 3px 6px 0 rgba(0, 0, 0, 0.07);
+
+  @include to(m) {
+    display: none;
+  }
+
+  .logo_udeo {
+    float: left;
+    width: 100%;
+    height: 65px;
+    margin-top: 18px;
+    margin-bottom: 10px;
+    background: url('/assets/img/logo-udeo.png') no-repeat center;
+    background-size: 90%;
+  }
+
+  ul {
+    float: left;
+    width: 100%;
+    padding: 0;
+    list-style: none;
+
+      li {
+        float: left;
+        width: 100%;
+
+        &:hover {
+          color: var(--blanco);
+          background: var(--marron);
+          transition: all .3s;
+        }
+
+          a {
+            float: left;
+            width: 100%;
+            padding: 8px 10px;
+            padding-left: 45px;
+            color: #333;
+            font-weight: 600;
+            font-size: 14px !important;
+            opacity: 0.8;
+
+              &:hover{
+                text-decoration: none;
+                opacity: 1;
+                font-weight: 600;
+                color: var(--blanco);
+                transition: all .3s;
+              }
+
+              p {
+                margin: 0;
+              }
+          }
+      }
+  }
+
+  .menu_bottom {
+    float: left;
+    width: 100%;
+    padding: 0;
+    list-style: none;
+
+      li {
+        float: left;
+        width: 100%;
+        padding: 0;
+      }
+  }
+}
+
+.ico_dash {
+  background: url('/assets/img/ico-dash.svg') no-repeat 15px center;
+  background-size: 18px;
+
+  &:hover {
+    background: url('/assets/img/ico-dashb.svg') no-repeat 15px center;
+    background-size: 18px;
+  }
+}
+
+.ico_proyectos {
+  background: url('/assets/img/ico-votos.svg') no-repeat 15px center;
+  background-size: 18px;
+
+  &:hover {
+    background: url('/assets/img/ico-votosb.svg') no-repeat 15px center;
+    background-size: 18px;
+  }
+}
+
+.ico_exit {
+  background: url('/assets/img/ico-exit.svg') no-repeat 15px center;
+  background-size: 18px;
+
+  &:hover {
+    background: url('/assets/img/ico-exitb.svg') no-repeat 15px center;
+    background-size: 18px;
+  }
+}

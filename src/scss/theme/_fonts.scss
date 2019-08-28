@@ -1,0 +1,13 @@
+:root {
+   --title: 18px;
+   --sub_title: 16px;
+   --text: 15px;
+   --sub_text: 13px;
+
+   @include to(m) {
+      --title: 17px;
+      --sub_title: 15px;
+      --text: 14px;
+      --sub_text: 12px;
+   }
+}

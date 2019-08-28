@@ -1,0 +1,17 @@
+body, html {
+  height: 100%;
+}
+
+.content_area {
+  float: right;
+  width: 87%;
+  transition: width .4s;
+  min-height: 100%;
+  overflow: hidden;
+  background: var(--gris);
+  padding: 0 15px;
+
+  @include to(m) {
+    width: 100%;
+  }
+}

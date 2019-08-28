@@ -1,0 +1,32 @@
+//Frameword and library
+$cssCore: false;
+$cssHelpers: true;
+@import "library/ed-grid/ed-grid";
+
+// Config
+@import "config/functions";
+@import "config/variables";
+@import "config/mixins";
+
+//BASE
+@import "base/base";
+
+//Components UDEO
+@import "/components/media-queries";
+@import "/components/menu";
+@import "/components/buttons";
+@import "/components/modals";
+
+//Style theme UDEO
+@import "/layouts/home";
+@import "/layouts/proyectos";
+
+//Styles Helpers
+@import "/helpers/head";
+
+//variables css colors and fonts theming
+@import "theme/colors";
+@import "theme/fonts";
+
+//Hacks
+@import "hacks/hacks";
