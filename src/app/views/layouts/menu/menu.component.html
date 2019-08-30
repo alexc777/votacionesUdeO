@@ -27,3 +27,38 @@
     </ul>
   </div>
 </div>
+
+<div class="btn-menu">
+  <div class="logo_udeophone"></div>
+  <div class="ico-menu" (click)="showMenu()"></div>
+
+  <div id="area_mas" *ngIf="isMenu">
+    <div class="ico-salir" (click)="showMenu()"></div>
+
+    <div class="list_phone">
+      <ul>
+        <li>
+          <a routerLink="escritorio" class="ico_dash" (click)="showMenu()">
+            <p>Escritorio</p>
+          </a>
+        </li>
+
+        <li>
+          <a routerLink="proyectos" class="ico_proyectos" (click)="showMenu()">
+            <p>Proyectos</p>
+          </a>
+        </li>
+      </ul>
+
+      <ul class="menu_bottom">
+        <li (click)="showMenu()">
+          <a href="#" role="button" class="ico_exit">
+            <p class="dnone_menut">
+              Salir
+            </p>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
