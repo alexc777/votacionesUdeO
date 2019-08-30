@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import {OverlayPanelModule} from 'primeng/overlaypanel';
 import { AppComponent } from './app.component';
 
 /* Rutas */
@@ -21,7 +21,8 @@ import { ProyectosComponent } from './views/pages/proyectos/proyectos.component'
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    appRouting
+    appRouting,
+    OverlayPanelModule
   ],
   providers: [],
   bootstrap: [AppComponent]

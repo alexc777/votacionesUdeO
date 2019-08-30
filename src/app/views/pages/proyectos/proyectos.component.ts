@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { OverlayPanel } from 'primeng/overlaypanel';
 
 @Component({
   selector: 'app-proyectos',
@@ -14,7 +15,7 @@ import { trigger, transition, style, animate } from '@angular/animations';
           [
             style({ top: '-30%' }),
             animate('0.2s ease-out',
-            style({ top: 0 }))
+              style({ top: 0 }))
           ]
         ),
         transition(
@@ -22,7 +23,7 @@ import { trigger, transition, style, animate } from '@angular/animations';
           [
             style({ top: 0 }),
             animate('0.2s ease-in',
-            style({ top: '-30%' }))
+              style({ top: '-30%' }))
           ]
         )
       ]
@@ -32,7 +33,8 @@ import { trigger, transition, style, animate } from '@angular/animations';
 export class ProyectosComponent implements OnInit {
 
   isModal = false;
-
+  panelVotar : OverlayPanel;
+  eventPanel: any;
   constructor() { }
 
   ngOnInit() {
@@ -42,6 +44,15 @@ export class ProyectosComponent implements OnInit {
     this.isModal = !this.isModal;
   }
 
+  openVotar(event, proyecto: any, panel: OverlayPanel) {
+    this.panelVotar = panel;
+    this.eventPanel = event;
+    panel.toggle(event);
+  }
+  votar(panel: OverlayPanel){
+    panel.hide();
+    window.alert('votaste');
+  }
 
 
 }

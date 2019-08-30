@@ -17,7 +17,8 @@
   </div>
 
   <div class="contenido_area">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias delectus ea quam facilis nihil repellat similique expedita totam illum quibusdam, enim debitis fuga dicta iusto quos eius saepe omnis incidunt!
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias delectus ea quam facilis nihil repellat similique
+    expedita totam illum quibusdam, enim debitis fuga dicta iusto quos eius saepe omnis incidunt!
   </div>
 </div>
 
@@ -27,7 +28,8 @@
       <div class="boxdata_cardcontainer">
         <div class="boxdata_item">
           <div class="card_image">
-            <img src="https://panamericanlatam.com/wp-content/uploads/2019/07/negocios-digitales-450x270.png" alt="test">
+            <img src="https://panamericanlatam.com/wp-content/uploads/2019/07/negocios-digitales-450x270.png"
+              alt="test">
           </div>
 
           <div class="card__content">
@@ -36,12 +38,17 @@
             </div>
 
             <div class="card__body">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias iste cupiditate, mollitia veniam eligendi quidem...</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias iste cupiditate, mollitia veniam
+                eligendi quidem...</p>
             </div>
 
             <div class="card__foter">
               <button type="button" class="btn btn_proyecto" (click)="showModal()">
                 Ver Más
+              </button>
+
+              <button type="button" class="btn btn_proyecto" (click)="panelVotar.toggle($event)">
+                Votar
               </button>
             </div>
           </div>
@@ -49,7 +56,9 @@
 
         <div class="boxdata_item">
           <div class="card_image">
-            <img src="https://panamericanlatam.com/wp-content/uploads/2018/05/1495034241_299111_1495042680_noticia_normal_recorte1-450x270.jpg" alt="test">
+            <img
+              src="https://panamericanlatam.com/wp-content/uploads/2018/05/1495034241_299111_1495042680_noticia_normal_recorte1-450x270.jpg"
+              alt="test">
           </div>
 
           <div class="card__content">
@@ -58,7 +67,8 @@
             </div>
 
             <div class="card__body">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias iste cupiditate, mollitia veniam eligendi
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias iste cupiditate, mollitia veniam
+                eligendi
                 quidem...</p>
             </div>
 
@@ -81,7 +91,8 @@
             </div>
 
             <div class="card__body">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias iste cupiditate, mollitia veniam eligendi
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias iste cupiditate, mollitia veniam
+                eligendi
                 quidem...</p>
             </div>
 
@@ -95,7 +106,8 @@
 
         <div class="boxdata_item">
           <div class="card_image">
-            <img src="https://panamericanlatam.com/wp-content/uploads/2018/02/slider-congreso-retail-450x270.jpg" alt="test">
+            <img src="https://panamericanlatam.com/wp-content/uploads/2018/02/slider-congreso-retail-450x270.jpg"
+              alt="test">
           </div>
 
           <div class="card__content">
@@ -104,7 +116,8 @@
             </div>
 
             <div class="card__body">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias iste cupiditate, mollitia veniam eligendi
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias iste cupiditate, mollitia veniam
+                eligendi
                 quidem...</p>
             </div>
 
@@ -118,7 +131,8 @@
 
         <div class="boxdata_item">
           <div class="card_image">
-            <img src="https://panamericanlatam.com/wp-content/uploads/2019/07/negocios-digitales-450x270.png" alt="test">
+            <img src="https://panamericanlatam.com/wp-content/uploads/2019/07/negocios-digitales-450x270.png"
+              alt="test">
           </div>
 
           <div class="card__content">
@@ -127,7 +141,8 @@
             </div>
 
             <div class="card__body">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias iste cupiditate, mollitia veniam eligendi
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias iste cupiditate, mollitia veniam
+                eligendi
                 quidem...</p>
             </div>
 
@@ -142,3 +157,22 @@
     </div>
   </div>
 </div>
+<p-overlayPanel #panelVotar [dismissable]="true" [showCloseIcon]="true">
+  <div>
+    <button class="btn btn-default" (click) ="votar()">
+      <img src="/assets/img/escala1.png" width="30" />
+    </button>
+    <button class="btn btn-default" (click) ="votar()">
+      <img src="/assets/img/escala2.png" width="30" />
+    </button>
+    <button class="btn btn-default" (click) ="votar()">
+      <img src="/assets/img/escala3.png" width="30" />
+    </button>
+    <button class="btn btn-default" (click) ="votar(panelVotar)">
+      <img src="/assets/img/escala4.png" width="30" />
+    </button>
+    <button class="btn btn-default" (click) ="votar()">
+      <img src="/assets/img/escala5.png" width="30" />
+    </button>
+  </div>
+</p-overlayPanel>
