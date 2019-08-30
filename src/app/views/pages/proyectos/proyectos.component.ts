@@ -33,8 +33,14 @@ import { OverlayPanel } from 'primeng/overlaypanel';
 export class ProyectosComponent implements OnInit {
 
   isModal = false;
-  panelVotar : OverlayPanel;
+  panelVotar: OverlayPanel;
   eventPanel: any;
+
+  descripcion = true;
+  integrantes = false;
+  docentes = false;
+  galeria = false;
+
   constructor() { }
 
   ngOnInit() {
@@ -44,15 +50,52 @@ export class ProyectosComponent implements OnInit {
     this.isModal = !this.isModal;
   }
 
-  openVotar(event, proyecto: any, panel: OverlayPanel) {
+  openVotar(event: any, proyecto: any, panel: OverlayPanel) {
     this.panelVotar = panel;
     this.eventPanel = event;
     panel.toggle(event);
   }
-  votar(panel: OverlayPanel){
+  votar(panel: OverlayPanel) {
     panel.hide();
-    window.alert('votaste');
+    console.log('votaste');
   }
 
+  changeTab(tab: string) {
+    switch (tab) {
+      case 'descripcion':
+        this.descripcion = true;
+        this.integrantes = false;
+        this.docentes = false;
+        this.galeria = false;
+        break;
+
+      case 'integrantes':
+        this.integrantes = true;
+        this.docentes = false;
+        this.galeria = false;
+        this.descripcion = false;
+        break;
+
+      case 'docentes':
+        this.docentes = true;
+        this.galeria = false;
+        this.descripcion = false;
+        this.integrantes = false;
+        break;
+
+      case 'galeria':
+        this.galeria = true;
+        this.descripcion = false;
+        this.integrantes = false;
+        this.docentes = false;
+        break;
+
+      default:
+        this.descripcion = true;
+        this.integrantes = false;
+        this.docentes = false;
+        break;
+    }
+  }
 
 }

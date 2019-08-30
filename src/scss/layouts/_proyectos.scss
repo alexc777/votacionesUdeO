@@ -25,7 +25,7 @@
     flex-direction: column;
     overflow: hidden;
 
-    .card_img {
+    .card_image {
       float: left;
 
       img {
@@ -33,6 +33,7 @@
         border-bottom: none;
         display: block;
         border-radius: .25rem .25rem 0 0;
+        cursor: pointer;
       }
     }
 
@@ -69,7 +70,7 @@
       .card__foter {
         margin-top: auto;
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
         align-items: center;
         font-size: var(--sub_text);
         border-top: 1px solid #dfe0e0;
@@ -91,3 +92,200 @@
     }
   }
 }
+
+.box_menu {
+  float: left;
+  width: 100%;
+  background: var(--gris);
+  border-radius: 4px;
+  overflow: hidden;
+
+  ul {
+    float: left;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+
+    li {
+      float: left;
+      width: 100%;
+      font-size: var(--sub_text);
+      color: var(--negro);
+      font-weight: 400;
+      padding: 5px;
+      cursor: pointer;
+
+      &:hover {
+        background: var(--rojo);
+        color: var(--blanco);
+        font-weight: bold;
+      }
+
+      &.active {
+        background: var(--rojo);
+        color: var(--blanco);
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.content_detalle {
+  float: left;
+  width: 100%;
+
+  .descripcion {
+    float: left;
+    width: 100%;
+
+    p {
+      float: left;
+      width: 100%;
+      color: var(--negro);
+      font-size: var(--text);
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      line-height: 1.6;
+    }
+  }
+
+  .integrantes {
+    float: left;
+    width: 100%;
+
+    .card_integrantes {
+      float: left;
+      width: 100%;
+      padding: 0;
+
+      @include grid('.card_item', 1 2 3 3);
+
+      .card_item {
+        float: left;
+        border-radius: 10px;
+        border: 1px solid #eee;
+        box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.08);
+        background: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        overflow: hidden;
+
+        .card_image {
+          float: left;
+
+          img {
+            border: none;
+            border-bottom: none;
+            display: block;
+            border-radius: .25rem .25rem 0 0;
+            cursor: pointer;
+          }
+        }
+
+        .card__content {
+          display: flex;
+          flex: 1;
+          flex-direction: column;
+          font-size: var(--text);
+          padding: 1rem;
+
+          .card__title {
+            float: left;
+            width: 100%;
+
+            h2 {
+              font-size: var(--title);
+              margin-bottom: 8px;
+              font-weight: 700;
+              color: var(--negro);
+            }
+          }
+
+          .card__body {
+            margin-bottom: 1rem;
+
+            p {
+              font-size: var(--text);
+              font-weight: normal;
+              text-align: left;
+              color: var(--negro);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .docentes {
+    float: left;
+    width: 100%;
+
+    .card_docentes {
+      float: left;
+      width: 100%;
+      padding: 0;
+
+      @include grid('.card_item', 1 2 3 3);
+
+      .card_item {
+        float: left;
+        border-radius: 10px;
+        border: 1px solid #eee;
+        box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.08);
+        background: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        overflow: hidden;
+
+        .card_image {
+          float: left;
+
+          img {
+            border: none;
+            border-bottom: none;
+            display: block;
+            border-radius: .25rem .25rem 0 0;
+            cursor: pointer;
+          }
+        }
+
+        .card__content {
+          display: flex;
+          flex: 1;
+          flex-direction: column;
+          font-size: var(--text);
+          padding: 1rem;
+
+          .card__title {
+            float: left;
+            width: 100%;
+
+            h2 {
+              font-size: var(--title);
+              margin-bottom: 8px;
+              font-weight: 700;
+              color: var(--negro);
+            }
+          }
+
+          .card__body {
+            margin-bottom: 1rem;
+
+            p {
+              font-size: var(--text);
+              font-weight: normal;
+              text-align: left;
+              color: var(--negro);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+

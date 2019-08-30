@@ -1,16 +1,16 @@
 <div class="ed-container s-10">
   <div class="menulateral col-sm-2 spd spi col-lg-m">
     <ul>
-      <a routerLink="escritorio" class="logo_udeo"></a>
+      <a  (click)="goTo('escritorio')" class="logo_udeo"></a>
 
       <li>
-        <a routerLink="escritorio" class="ico_dash">
+        <a class="ico_dash" (click)="goTo('escritorio')">
           <p>Escritorio</p>
         </a>
       </li>
 
       <li>
-        <a routerLink="proyectos"class="ico_proyectos">
+        <a class="ico_proyectos" (click)="goTo('proyectos')">
           <p>Proyectos</p>
         </a>
       </li>
@@ -18,7 +18,7 @@
 
     <ul class="menu_bottom">
       <li>
-        <a href="#" role="button" class="ico_exit">
+        <a role="button" class="ico_exit" (click)="goTo('login')">
           <p class="dnone_menut">
             Salir
           </p>
@@ -29,7 +29,7 @@
 </div>
 
 <div class="btn-menu">
-  <div class="logo_udeophone"></div>
+  <div class="logo_udeophone" (click)="goTo('escritorio')"></div>
   <div class="ico-menu" (click)="showMenu()"></div>
 
   <div id="area_mas" *ngIf="isMenu">
@@ -37,22 +37,22 @@
 
     <div class="list_phone">
       <ul>
-        <li>
-          <a routerLink="escritorio" class="ico_dash" (click)="showMenu()">
+        <li (click)="goTo('escritorio')">
+          <a class="ico_dash">
             <p>Escritorio</p>
           </a>
         </li>
 
-        <li>
-          <a routerLink="proyectos" class="ico_proyectos" (click)="showMenu()">
+        <li (click)="goTo('proyectos')">
+          <a class="ico_proyectos">
             <p>Proyectos</p>
           </a>
         </li>
       </ul>
 
       <ul class="menu_bottom">
-        <li (click)="showMenu()">
-          <a href="#" role="button" class="ico_exit">
+        <li (click)="goTo('login')">
+          <a role="button" class="ico_exit">
             <p class="dnone_menut">
               Salir
             </p>

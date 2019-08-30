@@ -1,178 +1,337 @@
-<div class="head_vista">
-  <div class="opciones_vista">
-    <div class="titulo">
-      <h1>Proyectos</h1>
-    </div>
+<app-menu></app-menu>
 
-    <div class="container_acciones"></div>
-  </div>
-</div>
+<div class="content_area">
+  <div class="head_vista">
+    <div class="opciones_vista">
+      <div class="titulo">
+        <h1>Proyectos</h1>
+      </div>
 
-<div id="area_ID" *ngIf="isModal" [@inOutAnimation]>
-  <div class="header_area">
-    <h1>Proyecto Name</h1>
-    <div class="areacerrar">
-      <a class="icocerrar" (click)="showModal()">X</a>
+      <div class="container_acciones"></div>
     </div>
   </div>
 
-  <div class="contenido_area">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias delectus ea quam facilis nihil repellat similique
-    expedita totam illum quibusdam, enim debitis fuga dicta iusto quos eius saepe omnis incidunt!
-  </div>
-</div>
+  <div id="area_ID" *ngIf="isModal" [@inOutAnimation]>
+    <div class="header_area">
+      <h1>Proyecto Name</h1>
 
-<div class="ed-container full">
-  <div class="boxdata_container">
-    <div class="ed-container full">
-      <div class="boxdata_cardcontainer">
-        <div class="boxdata_item">
-          <div class="card_image">
-            <img src="https://panamericanlatam.com/wp-content/uploads/2019/07/negocios-digitales-450x270.png"
-              alt="test">
-          </div>
+      <a class="ico_salir" (click)="showModal()"></a>
+    </div>
 
-          <div class="card__content">
-            <div class="card__title">
-              <h2>Contruye tu Red Neuronal</h2>
-            </div>
+    <div class="contenido_area">
+      <div class="ed-container full">
+        <div class="ed-item s-100 m-15">
+          <div class="box_menu">
+            <ul>
+              <li [ngClass]="{'active': descripcion}"
+                  (click)="changeTab('descripcion')">Descripción</li>
 
-            <div class="card__body">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias iste cupiditate, mollitia veniam
-                eligendi quidem...</p>
-            </div>
+              <li [ngClass]="{'active': integrantes}"
+                  (click)="changeTab('integrantes')">Integrantes</li>
 
-            <div class="card__foter">
-              <button type="button" class="btn btn_proyecto" (click)="showModal()">
-                Ver Más
-              </button>
+              <li [ngClass]="{'active': docentes}"
+                  (click)="changeTab('docentes')">Docentes</li>
 
-              <button type="button" class="btn btn_proyecto" (click)="panelVotar.toggle($event)">
-                Votar
-              </button>
-            </div>
+              <li [ngClass]="{'active': galeria}"
+                  (click)="changeTab('galeria')">Galería</li>
+            </ul>
           </div>
         </div>
 
-        <div class="boxdata_item">
-          <div class="card_image">
-            <img
-              src="https://panamericanlatam.com/wp-content/uploads/2018/05/1495034241_299111_1495042680_noticia_normal_recorte1-450x270.jpg"
-              alt="test">
-          </div>
-
-          <div class="card__content">
-            <div class="card__title">
-              <h2>Hacking ético</h2>
+        <div class="ed-item s-100 m-85">
+          <div class="content_detalle">
+            <div class="descripcion" *ngIf="descripcion">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore omnis et quis delectus praesentium dicta id, ex corrupti fugiat, cum corporis sit exercitationem! Qui libero quos consequuntur dicta omnis dolor.
+                Iusto rem itaque cumque officiis esse eos! Aliquid eligendi quod architecto! Repellat, eaque. Minus illo quibusdam deserunt sint commodi, suscipit, quia eius animi repellat, qui distinctio! Asperiores, odio? Quia, incidunt.
+                Laboriosam non ex blanditiis culpa natus veniam quae, ut delectus fugiat iure voluptatem voluptate illo similique iste quod. Inventore magni ducimus, voluptatum excepturi pariatur iure sapiente saepe officia deserunt. Ex!
+                Eaque dignissimos, alias nemo molestiae vitae delectus sunt aut possimus illo mollitia consectetur sequi ab impedit obcaecati animi eius. Nam unde dignissimos veniam culpa, praesentium molestiae pariatur atque inventore eveniet!
+                Accusamus, blanditiis consequuntur, quisquam expedita dignissimos optio quae debitis nemo ex pariatur eius magni nisi fugiat vel veritatis, praesentium deleniti. Recusandae minus nam quaerat numquam assumenda! Ullam nesciunt quod aliquam.
+                Pariatur beatae dignissimos illum consequuntur molestiae qui odio nam aperiam? Repudiandae, enim cupiditate. Porro autem earum voluptatem ex aut dolore. Dolore voluptate velit reiciendis dignissimos distinctio necessitatibus temporibus, nobis expedita?
+                Autem recusandae deserunt quod a, tenetur maiores praesentium inventore maxime vel! Accusamus mollitia dolorum earum amet explicabo, aperiam molestiae itaque impedit omnis? Nisi at mollitia corrupti saepe, adipisci natus sint.
+                Quidem laudantium odit nulla unde provident vel repudiandae officiis blanditiis nihil odio, ipsa assumenda voluptatibus possimus voluptate alias, ipsam eos sit consequuntur eligendi atque voluptas eveniet omnis. Accusamus, totam voluptatibus?
+                Sit eaque optio odit incidunt, officia maiores, quam nesciunt unde magnam, deleniti dolores! Et velit fugiat quo beatae labore itaque, praesentium sed repellat soluta, cumque dignissimos consequatur! Necessitatibus, error sunt.
+                Quos consequuntur quibusdam omnis delectus autem assumenda iure recusandae deleniti beatae magnam fuga id molestiae, expedita sint tenetur! Ab aliquam error minus necessitatibus sunt magni explicabo at facilis, possimus fugiat?
+              </p>
             </div>
 
-            <div class="card__body">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias iste cupiditate, mollitia veniam
-                eligendi
-                quidem...</p>
+            <div class="integrantes" *ngIf="integrantes">
+              <div class="ed-item ed-container full">
+                <div class="card_integrantes">
+                  <div class="card_item">
+                    <div class="card_image" (click)="showModal()">
+                      <img src="https://panamericanlatam.com/wp-content/uploads/2019/07/negocios-digitales-450x270.png" alt="test">
+                    </div>
+
+                    <div class="card__content">
+                      <div class="card__title">
+                        <h2>Axel</h2>
+                      </div>
+
+                      <div class="card__body">
+                        <p>Estudiante de UdeO en la facultad de Ingeniería</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="card_item">
+                    <div class="card_image" (click)="showModal()">
+                      <img src="https://panamericanlatam.com/wp-content/uploads/2019/07/negocios-digitales-450x270.png" alt="test">
+                    </div>
+
+                    <div class="card__content">
+                      <div class="card__title">
+                        <h2>Eduardo Tipaz</h2>
+                      </div>
+
+                      <div class="card__body">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit nobis quos laborum perferendis voluptatem voluptatibus id, sapiente, voluptatum quam est odio harum blanditiis natus maiores similique ad eos ea. Dolores.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div class="card__foter">
-              <button type="button" class="btn btn_proyecto" (click)="showModal()">
-                Ver Más
-              </button>
+            <div class="docentes" *ngIf="docentes">
+              <div class="ed-item ed-container full">
+                <div class="card_docentes">
+                  <div class="card_item">
+                    <div class="card_image" (click)="showModal()">
+                      <img src="https://panamericanlatam.com/wp-content/uploads/2019/07/negocios-digitales-450x270.png" alt="test">
+                    </div>
+
+                    <div class="card__content">
+                      <div class="card__title">
+                        <h2>Contruye tu Red Neuronal</h2>
+                      </div>
+
+                      <div class="card__body">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias iste cupiditate, mollitia veniam
+                          eligendi quidem...</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="card_item">
+                    <div class="card_image" (click)="showModal()">
+                      <img src="https://panamericanlatam.com/wp-content/uploads/2019/07/negocios-digitales-450x270.png" alt="test">
+                    </div>
+
+                    <div class="card__content">
+                      <div class="card__title">
+                        <h2>Contruye tu Red Neuronal</h2>
+                      </div>
+
+                      <div class="card__body">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias iste cupiditate, mollitia veniam
+                          eligendi quidem...</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="card_item">
+                    <div class="card_image" (click)="showModal()">
+                      <img src="https://panamericanlatam.com/wp-content/uploads/2019/07/negocios-digitales-450x270.png" alt="test">
+                    </div>
+
+                    <div class="card__content">
+                      <div class="card__title">
+                        <h2>Contruye tu Red Neuronal</h2>
+                      </div>
+
+                      <div class="card__body">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias iste cupiditate, mollitia veniam
+                          eligendi quidem...</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="card_item">
+                    <div class="card_image" (click)="showModal()">
+                      <img src="https://panamericanlatam.com/wp-content/uploads/2019/07/negocios-digitales-450x270.png" alt="test">
+                    </div>
+
+                    <div class="card__content">
+                      <div class="card__title">
+                        <h2>Contruye tu Red Neuronal</h2>
+                      </div>
+
+                      <div class="card__body">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias iste cupiditate, mollitia veniam
+                          eligendi quidem...</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
 
-        <div class="boxdata_item">
-          <div class="card_image">
-            <img src="https://panamericanlatam.com/wp-content/uploads/2018/01/Untitled-2-450x270.jpg" alt="test">
-          </div>
-
-          <div class="card__content">
-            <div class="card__title">
-              <h2>AI</h2>
-            </div>
-
-            <div class="card__body">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias iste cupiditate, mollitia veniam
-                eligendi
-                quidem...</p>
-            </div>
-
-            <div class="card__foter">
-              <button type="button" class="btn btn_proyecto" (click)="showModal()">
-                Ver Más
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="boxdata_item">
-          <div class="card_image">
-            <img src="https://panamericanlatam.com/wp-content/uploads/2018/02/slider-congreso-retail-450x270.jpg"
-              alt="test">
-          </div>
-
-          <div class="card__content">
-            <div class="card__title">
-              <h2>Redes Sociales</h2>
-            </div>
-
-            <div class="card__body">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias iste cupiditate, mollitia veniam
-                eligendi
-                quidem...</p>
-            </div>
-
-            <div class="card__foter">
-              <button type="button" class="btn btn_proyecto" (click)="showModal()">
-                Ver Más
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="boxdata_item">
-          <div class="card_image">
-            <img src="https://panamericanlatam.com/wp-content/uploads/2019/07/negocios-digitales-450x270.png"
-              alt="test">
-          </div>
-
-          <div class="card__content">
-            <div class="card__title">
-              <h2>Contruye tu Red Neuronal</h2>
-            </div>
-
-            <div class="card__body">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias iste cupiditate, mollitia veniam
-                eligendi
-                quidem...</p>
-            </div>
-
-            <div class="card__foter">
-              <button type="button" class="btn btn_proyecto" (click)="showModal()">
-                Ver Más
-              </button>
+            <div class="descripcion" *ngIf="galeria">
+              <p>
+                Luis, te agradeceria si me apoyas con integrar el componente del carrusel que nos mostraste gracias.
+              </p>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-<p-overlayPanel #panelVotar [dismissable]="true" [showCloseIcon]="true">
-  <div>
-    <button class="btn btn-default" (click) ="votar(panelVotar)">
-      <img src="/assets/img/escala1.png" width="30" />
-    </button>
-    <button class="btn btn-default" (click) ="votar(panelVotar)">
-      <img src="/assets/img/escala2.png" width="30" />
-    </button>
-    <button class="btn btn-default" (click) ="votar(panelVotar)">
-      <img src="/assets/img/escala3.png" width="30" />
-    </button>
-    <button class="btn btn-default" (click) ="votar(panelVotar)">
-      <img src="/assets/img/escala4.png" width="30" />
-    </button>
-    <button class="btn btn-default" (click) ="votar(panelVotar)">
-      <img src="/assets/img/escala5.png" width="30" />
-    </button>
+
+  <div class="ed-container full">
+    <div class="boxdata_container">
+      <div class="ed-container full">
+        <div class="boxdata_cardcontainer">
+          <div class="boxdata_item">
+            <div class="card_image" (click)="showModal()">
+              <img src="https://panamericanlatam.com/wp-content/uploads/2019/07/negocios-digitales-450x270.png"
+                alt="test">
+            </div>
+
+            <div class="card__content">
+              <div class="card__title">
+                <h2>Contruye tu Red Neuronal</h2>
+              </div>
+
+              <div class="card__body">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias iste cupiditate, mollitia veniam
+                  eligendi quidem...</p>
+              </div>
+
+              <div class="card__foter">
+                <button type="button" class="btn btn_proyecto"
+                        (click)="panelVotar.toggle($event)">
+                  Votar
+                </button>
+
+                <button type="button" class="btn btn_proyecto" (click)="showModal()">
+                  Ver Más
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="boxdata_item">
+            <div class="card_image">
+              <img
+                src="https://panamericanlatam.com/wp-content/uploads/2018/05/1495034241_299111_1495042680_noticia_normal_recorte1-450x270.jpg"
+                alt="test" (click)="showModal()">
+            </div>
+
+            <div class="card__content">
+              <div class="card__title">
+                <h2>Hacking ético</h2>
+              </div>
+
+              <div class="card__body">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias iste cupiditate, mollitia veniam
+                  eligendi
+                  quidem...</p>
+              </div>
+
+              <div class="card__foter">
+                <button type="button" class="btn btn_proyecto" (click)="showModal()">
+                  Ver Más
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="boxdata_item">
+            <div class="card_image">
+              <img src="https://panamericanlatam.com/wp-content/uploads/2018/01/Untitled-2-450x270.jpg" alt="test" (click)="showModal()">
+            </div>
+
+            <div class="card__content">
+              <div class="card__title">
+                <h2>AI</h2>
+              </div>
+
+              <div class="card__body">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias iste cupiditate, mollitia veniam
+                  eligendi
+                  quidem...</p>
+              </div>
+
+              <div class="card__foter">
+                <button type="button" class="btn btn_proyecto" (click)="showModal()">
+                  Ver Más
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="boxdata_item">
+            <div class="card_image">
+              <img src="https://panamericanlatam.com/wp-content/uploads/2018/02/slider-congreso-retail-450x270.jpg"
+                alt="test" (click)="showModal()">
+            </div>
+
+            <div class="card__content">
+              <div class="card__title">
+                <h2>Redes Sociales</h2>
+              </div>
+
+              <div class="card__body">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias iste cupiditate, mollitia veniam
+                  eligendi
+                  quidem...</p>
+              </div>
+
+              <div class="card__foter">
+                <button type="button" class="btn btn_proyecto" (click)="showModal()">
+                  Ver Más
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="boxdata_item">
+            <div class="card_image">
+              <img src="https://panamericanlatam.com/wp-content/uploads/2019/07/negocios-digitales-450x270.png"
+                alt="test" (click)="showModal()">
+            </div>
+
+            <div class="card__content">
+              <div class="card__title">
+                <h2>Contruye tu Red Neuronal</h2>
+              </div>
+
+              <div class="card__body">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias iste cupiditate, mollitia veniam
+                  eligendi
+                  quidem...</p>
+              </div>
+
+              <div class="card__foter">
+                <button type="button" class="btn btn_proyecto" (click)="showModal()">
+                  Ver Más
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</p-overlayPanel>
+
+  <p-overlayPanel #panelVotar [dismissable]="true" [showCloseIcon]="true">
+    <div>
+      <button class="btn btn-default" (click) ="votar(panelVotar)">
+        <img src="/assets/img/escala1.png" width="30" />
+      </button>
+      <button class="btn btn-default" (click) ="votar(panelVotar)">
+        <img src="/assets/img/escala2.png" width="30" />
+      </button>
+      <button class="btn btn-default" (click) ="votar(panelVotar)">
+        <img src="/assets/img/escala3.png" width="30" />
+      </button>
+      <button class="btn btn-default" (click) ="votar(panelVotar)">
+        <img src="/assets/img/escala4.png" width="30" />
+      </button>
+      <button class="btn btn-default" (click) ="votar(panelVotar)">
+        <img src="/assets/img/escala5.png" width="30" />
+      </button>
+    </div>
+  </p-overlayPanel>
+</div>

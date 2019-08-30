@@ -1,0 +1,30 @@
+<div class="login_container">
+  <div class="ed-container main-center cross-center full_height">
+    <div class="ed-item s-95 m-45">
+      <div class="logo_udeo"></div>
+      <div class="box_login">
+        <div class="content_optionslg">
+          <div class="icons ico_google"></div>
+        </div>
+
+        <form #user="ngForm" (ngSubmit)="login(user)">
+          <div class="form-group">
+            <input type="email" name="email" class="form-control" placeholder="Correo"
+                  [(ngModel)]="email">
+          </div>
+
+          <div class="form-group">
+            <input type="password" name="pass" class="form-control"
+                    placeholder="Contraseña" [(ngModel)]="pass">
+          </div>
+
+          <div class="form-group row">
+            <div class="col-sm-12">
+              <button type="submit" class="btn btn_login">Ingresar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
