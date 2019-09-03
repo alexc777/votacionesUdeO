@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
+import { Location } from "@angular/common";
 import { Router } from "@angular/router";
 import { AuthService } from "../../../services/auth.service";
 
@@ -11,8 +12,19 @@ import { AuthService } from "../../../services/auth.service";
 export class LoginComponent implements OnInit {
   email: string = "";
   pass: string = "";
-
-  constructor(public auth: AuthService, private router: Router) {}
+  aRoute: Boolean;
+  constructor(
+    public auth: AuthService,
+    private router: Router,
+    location: Location
+  ) {
+    router.events.subscribe(routeValue => {
+      if (location.path() === "/login") {
+        console.log(location.path());
+        this.aRoute = true;
+      }
+    });
+  }
 
   ngOnInit() {}
 
@@ -22,5 +34,13 @@ export class LoginComponent implements OnInit {
     this.router.navigate([`/escritorio`]).then(() => {
       console.log("entro");
     });
+  }
+
+  getNgSubmitMethod(email, pass) {
+    if (this.aRoute) {
+      this.auth.signIn(email, pass);
+    } else {
+      this.auth.signUp(email, pass);
+    }
   }
 }

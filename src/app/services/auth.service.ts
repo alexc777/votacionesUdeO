@@ -27,6 +27,10 @@ export class AuthService {
       })
     );
   }
+  getUser(): Promise<any> {
+    return this.afAuth.authState.pipe(first()).toPromise();
+  }
+
   async signInWIthGoogle() {
     //reference
     const provider = new auth.GoogleAuthProvider();

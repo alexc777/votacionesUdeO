@@ -3,11 +3,14 @@
     <div class="ed-item s-95 m-45">
       <div class="logo_udeo"></div>
       <div class="box_login">
-        <div class="content_optionslg">
+        <div *ngIf="aRoute" class="content_optionslg">
           <div (click)="auth.signInWIthGoogle()" class="icons ico_google"></div>
         </div>
+        <div *ngIf="!aRoute" class="content_optionslg">
+          <div><h3>Registro</h3></div>
+        </div>
 
-        <form #user="ngForm" (ngSubmit)="auth.signUp(email, pass)">
+        <form #user="ngForm" (ngSubmit)="getNgSubmitMethod(email, pass)">
           <div class="form-group">
             <input
               type="email"
