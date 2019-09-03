@@ -2,6 +2,7 @@
   float: left;
   width: 100%;
   min-height: 150px;
+  max-height: 500px;
   border-radius: 8px;
   border: none;
   box-shadow: 2px 2px 15px 0px rgba(0, 0, 0, 0.08);
@@ -12,6 +13,7 @@
   flex-direction: column;
   padding: 8px;
   margin-bottom: 20px;
+  // overflow: hidden;
 
   .title_chart {
     float: left;
@@ -33,5 +35,11 @@
     width: 100%;
     margin-top: 5px;
     overflow: hidden;
+
+    canvas {
+      width: 100% !important;
+      max-height: 500px !important;
+    }
+
   }
 }

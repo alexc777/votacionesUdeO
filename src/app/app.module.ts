@@ -5,6 +5,9 @@ import {OverlayPanelModule} from 'primeng/overlaypanel';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 
+/* Graficos */
+import { ChartsModule } from 'ng2-charts';
+
 /* Rutas */
 import { appRouting } from './app.routes';
 
@@ -27,7 +30,8 @@ import { LoginComponent } from './views/auth/login/login.component';
     BrowserAnimationsModule,
     appRouting,
     FormsModule,
-    OverlayPanelModule
+    OverlayPanelModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
