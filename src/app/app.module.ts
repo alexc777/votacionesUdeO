@@ -1,5 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { NgModule, ErrorHandler } from "@angular/core";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 //Firestore
 import { AngularFireModule } from "@angular/fire";
@@ -13,7 +13,7 @@ import { ChartsModule } from 'ng2-charts';
 //
 import { OverlayPanelModule } from "primeng/overlaypanel";
 import { AppComponent } from "./app.component";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 /* Rutas */
 import { appRouting } from "./app.routes";
@@ -22,6 +22,8 @@ import { DashboardComponent } from "./views/pages/dashboard/dashboard.component"
 import { MenuComponent } from "./views/layouts/menu/menu.component";
 import { ProyectosComponent } from "./views/pages/proyectos/proyectos.component";
 import { LoginComponent } from "./views/auth/login/login.component";
+import { ToastrModule } from "ngx-toastr";
+import { LoginErrorHndler } from "./app.handleErrors";
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { LoginComponent } from "./views/auth/login/login.component";
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     appRouting,
     FormsModule,
@@ -40,9 +43,19 @@ import { LoginComponent } from "./views/auth/login/login.component";
     ChartsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: "toast-top-right",
+      preventDuplicates: true
+    })
   ],
-  providers: [],
+  providers: [
+    {
+      provide: ErrorHandler,
+      useClass: LoginErrorHndler
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
