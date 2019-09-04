@@ -1,16 +1,19 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { AppComponent } from "./app.component";
+import { FormsModule } from "@angular/forms";
+import { HttpClientModule }    from '@angular/common/http';
 //Firestore
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { environment } from "../environments/environment";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 
-//
+//NgPrime
+import {GalleriaModule} from 'primeng/galleria';
 import { OverlayPanelModule } from "primeng/overlaypanel";
-import { AppComponent } from "./app.component";
-import { FormsModule } from "@angular/forms";
+
 
 /* Rutas */
 import { appRouting } from "./app.routes";
@@ -36,7 +39,9 @@ import { LoginComponent } from "./views/auth/login/login.component";
     OverlayPanelModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    HttpClientModule,
+    GalleriaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
