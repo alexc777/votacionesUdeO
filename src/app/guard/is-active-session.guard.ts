@@ -23,7 +23,7 @@ export class IsActiveSessionGuard implements CanActivate {
     const loggedIn = !!user;
 
     if (loggedIn) {
-      console.log("Usted no puede ingresar aqui");
+      console.log("Active Session");
       this.router.navigate(["/escritorio"]);
     }
 

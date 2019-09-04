@@ -1,5 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { NgModule, ErrorHandler } from "@angular/core";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 //Firestore
 import { AngularFireModule } from "@angular/fire";
@@ -20,6 +20,7 @@ import { MenuComponent } from "./views/layouts/menu/menu.component";
 import { ProyectosComponent } from "./views/pages/proyectos/proyectos.component";
 import { LoginComponent } from "./views/auth/login/login.component";
 import { ToastrModule } from "ngx-toastr";
+import { LoginErrorHndler } from "./app.handleErrors";
 
 @NgModule({
   declarations: [
@@ -45,7 +46,12 @@ import { ToastrModule } from "ngx-toastr";
       preventDuplicates: true
     })
   ],
-  providers: [],
+  providers: [
+    {
+      provide: ErrorHandler,
+      useClass: LoginErrorHndler
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

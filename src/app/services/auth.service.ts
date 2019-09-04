@@ -5,13 +5,13 @@ import { AngularFireAuth } from "@angular/fire/auth";
 import { Observable, of } from "rxjs";
 import { AngularFirestore } from "@angular/fire/firestore";
 import { first, switchMap, catchError } from "rxjs/operators";
-import { throwError } from "rxjs";
 
 @Injectable({
   providedIn: "root"
 })
 export class AuthService {
   user$: Observable<any>;
+  errmsg: String;
   constructor(
     private afAuth: AngularFireAuth,
     private afs: AngularFirestore,
@@ -53,17 +53,15 @@ export class AuthService {
       .createUserWithEmailAndPassword(email, password)
       .then(res => {
         this.router.navigate(["/escritorio"]);
-      })
-      .catch(this.handleError);
+      });
   }
 
-  signIn(email, password) {
+  async signIn(email, password) {
     return this.afAuth.auth
       .signInWithEmailAndPassword(email, password)
       .then(res => {
         this.router.navigate(["/escritorio"]);
-      })
-      .catch(this.handleError);
+      });
   }
 
   handleError(error) {
@@ -74,6 +72,7 @@ export class AuthService {
     } else {
       errormsg = `Error code: ${error.code} Message: ${error.message}`;
       console.log(errormsg);
+      this.errmsg = errormsg;
     }
   }
 }
