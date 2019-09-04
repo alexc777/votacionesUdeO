@@ -1,7 +1,7 @@
 <div class="ed-container s-10">
   <div class="menulateral col-sm-2 spd spi col-lg-m">
     <ul>
-      <a  (click)="goTo('escritorio')" class="logo_udeo"></a>
+      <a (click)="goTo('escritorio')" class="logo_udeo"></a>
 
       <li>
         <a class="ico_dash" (click)="goTo('escritorio')">
@@ -18,7 +18,7 @@
 
     <ul class="menu_bottom">
       <li>
-        <a role="button" class="ico_exit" (click)="goTo('login')">
+        <a role="button" class="ico_exit" (click)="auth.signOut()">
           <p class="dnone_menut">
             Salir
           </p>
@@ -50,8 +50,8 @@
         </li>
       </ul>
 
-      <ul class="menu_bottom">
-        <li (click)="goTo('login')">
+      <ul *ngIf="auth.user | async as users" class="menu_bottom">
+        <li (click)="auth.signOut()">
           <a role="button" class="ico_exit">
             <p class="dnone_menut">
               Salir

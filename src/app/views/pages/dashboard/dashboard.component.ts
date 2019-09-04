@@ -3,11 +3,12 @@ import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Color, BaseChartDirective, Label } from 'ng2-charts';
 import * as pluginAnnotations from 'chartjs-plugin-annotation';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
+import { AuthService } from "../../../services/auth.service";
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  selector: "app-dashboard",
+  templateUrl: "./dashboard.component.html",
+  styleUrls: ["./dashboard.component.scss"]
 })
 export class DashboardComponent {
 

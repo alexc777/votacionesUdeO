@@ -4,18 +4,28 @@
       <div class="logo_udeo"></div>
       <div class="box_login">
         <div class="content_optionslg">
-          <div class="icons ico_google"></div>
+          <div (click)="auth.signInWIthGoogle()" class="icons ico_google"></div>
         </div>
 
-        <form #user="ngForm" (ngSubmit)="login(user)">
+        <form #user="ngForm" (ngSubmit)="auth.signUp(email, pass)">
           <div class="form-group">
-            <input type="email" name="email" class="form-control" placeholder="Correo"
-                  [(ngModel)]="email">
+            <input
+              type="email"
+              name="email"
+              class="form-control"
+              placeholder="Correo"
+              [(ngModel)]="email"
+            />
           </div>
 
           <div class="form-group">
-            <input type="password" name="pass" class="form-control"
-                    placeholder="Contraseña" [(ngModel)]="pass">
+            <input
+              type="password"
+              name="pass"
+              class="form-control"
+              placeholder="Contraseña"
+              [(ngModel)]="pass"
+            />
           </div>
 
           <div class="form-group row">
