@@ -10,25 +10,62 @@
           <div><h3>Registro</h3></div>
         </div>
 
-        <form #user="ngForm" (ngSubmit)="getNgSubmitMethod(email, pass)">
+        <form
+          [formGroup]="userForm"
+          (ngSubmit)="
+            getNgSubmitMethod(getUserForm.email.value, getUserForm.pass.value)
+          "
+        >
           <div class="form-group">
             <input
               type="email"
-              name="email"
+              formControlName="email"
               class="form-control"
               placeholder="Correo"
-              [(ngModel)]="email"
+              [ngClass]="{
+                'is-invalid': submitted && getUserForm.email.errors
+              }"
             />
+            <div
+              *ngIf="submitted && getUserForm.email.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="getUserForm.email.errors.required">
+                Email es requerido
+              </div>
+              <div *ngIf="getUserForm.email.errors.email">
+                Email debe ser una direccion valida
+              </div>
+            </div>
           </div>
 
           <div class="form-group">
             <input
               type="password"
-              name="pass"
+              formControlName="pass"
               class="form-control"
               placeholder="Contraseña"
-              [(ngModel)]="pass"
+              [ngClass]="{
+                'is-invalid': submitted && getUserForm.pass.errors
+              }"
             />
+            <div
+              *ngIf="submitted && getUserForm.pass.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="getUserForm.pass.errors.required">
+                Password es requerido
+              </div>
+              <div *ngIf="getUserForm.pass.errors.minlength">
+                Password debe de tener almenos 4 caracteres
+              </div>
+              <div *ngIf="getUserForm.pass.errors.maxlength">
+                Password no puede tener mas de 30 caracteres.
+              </div>
+              <div *ngIf="getUserForm.pass.errors.pattern">
+                Password debe incluir una letra y un numero
+              </div>
+            </div>
           </div>
 
           <div class="form-group row">

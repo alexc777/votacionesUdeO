@@ -4,7 +4,9 @@ import { auth } from "firebase/app";
 import { AngularFireAuth } from "@angular/fire/auth";
 import { Observable, of } from "rxjs";
 import { AngularFirestore } from "@angular/fire/firestore";
-import { first, switchMap } from "rxjs/operators";
+import { first, switchMap, catchError } from "rxjs/operators";
+import { throwError } from "rxjs";
+
 @Injectable({
   providedIn: "root"
 })
@@ -50,22 +52,28 @@ export class AuthService {
     return this.afAuth.auth
       .createUserWithEmailAndPassword(email, password)
       .then(res => {
-        window.alert("You have been succesfully reg");
         this.router.navigate(["/escritorio"]);
       })
-      .catch(function(error) {
-        console.log(error.code);
-      });
+      .catch(this.handleError);
   }
 
-  async signIn(email, password) {
+  signIn(email, password) {
     return this.afAuth.auth
       .signInWithEmailAndPassword(email, password)
       .then(res => {
         this.router.navigate(["/escritorio"]);
       })
-      .catch(function(error) {
-        console.log(error.code);
-      });
+      .catch(this.handleError);
+  }
+
+  handleError(error) {
+    let errormsg = "";
+    if (error.error instanceof ErrorEvent) {
+      errormsg = `Error: ${error.error.message}`;
+      console.log(errormsg);
+    } else {
+      errormsg = `Error code: ${error.code} Message: ${error.message}`;
+      console.log(errormsg);
+    }
   }
 }

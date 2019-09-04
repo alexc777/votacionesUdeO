@@ -10,7 +10,7 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 //
 import { OverlayPanelModule } from "primeng/overlaypanel";
 import { AppComponent } from "./app.component";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 /* Rutas */
 import { appRouting } from "./app.routes";
@@ -19,6 +19,7 @@ import { DashboardComponent } from "./views/pages/dashboard/dashboard.component"
 import { MenuComponent } from "./views/layouts/menu/menu.component";
 import { ProyectosComponent } from "./views/pages/proyectos/proyectos.component";
 import { LoginComponent } from "./views/auth/login/login.component";
+import { ToastrModule } from "ngx-toastr";
 
 @NgModule({
   declarations: [
@@ -30,13 +31,19 @@ import { LoginComponent } from "./views/auth/login/login.component";
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     appRouting,
     FormsModule,
     OverlayPanelModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: "toast-top-right",
+      preventDuplicates: true
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
