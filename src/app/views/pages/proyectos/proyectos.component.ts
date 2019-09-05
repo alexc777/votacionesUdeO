@@ -49,10 +49,12 @@ export class ProyectosComponent implements OnInit {
   /*Modelos*/
   public proyecto: Proyecto;
   proyectos: Array<Proyecto>;
+  public proyectoVotar:any;
   public proyectoSeleccionado:any;
   public galeriaTest:Array<any>;
   public votos:any;
   usuario:any;
+  UID:any;
   constructor(private proyectoService: ProyectoService, private sanitizer: DomSanitizer,private authservice:AuthService,private votosService:VotosService) { }
 
   transform(image: any) {
@@ -61,6 +63,7 @@ export class ProyectosComponent implements OnInit {
   ngOnInit() {
     
     this.usuario = this.authservice.returnUser();
+    this.UID = this.authservice.returnUID();
     this.votosService.getVotos().subscribe(
       votos =>{
         this.votos = votos;
@@ -174,9 +177,21 @@ export class ProyectosComponent implements OnInit {
   openVotar(event: any, proyecto: any, panel: OverlayPanel) {
     this.panelVotar = panel;
     this.eventPanel = event;
+    console.log(proyecto);
+    this.proyectoVotar = proyecto;
     panel.toggle(event);
   }
-
+  votar(panel: OverlayPanel,valor:string) {
+    let voto:any = {};
+    voto.idProyecto = this.proyectoVotar.id;
+    voto.usuario = this.usuario;
+    voto.valor = valor;
+    voto.uid = this.UID;
+    console.log(voto);
+    this.votosService.addVoto(voto);
+    panel.hide();
+    console.log('votaste');
+  }
   pushMessage(proyecto: any,) {
     console.log("call pushMessage:");
     this.proyectoService.enviarPush(proyecto.id).subscribe(
@@ -187,11 +202,7 @@ export class ProyectosComponent implements OnInit {
   }
 
 
-  votar(panel: OverlayPanel) {
-    panel.hide();
-    console.log('votaste');
-  }
-
+  
   changeTab(tab: string) {
     switch (tab) {
       case 'descripcion':

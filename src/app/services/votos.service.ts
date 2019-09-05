@@ -11,12 +11,15 @@ export class VotosService {
     votosCollection: AngularFirestoreCollection<any>;
     votos: Observable<any>;
     user: string;
-    constructor(public afs: AngularFirestore, private authservice: AuthService) {
+    constructor(private afs: AngularFirestore, private authservice: AuthService) {
         this.user = authservice.returnUser();
-        this.votosCollection = afs.collection<any>('voto', ref => ref.where('usuario', '==', this.user.toString()));
+        console.log(this.user);
+        console.log(authservice.returnUID());
+        
     }
 
     getVotos() {
+        this.votosCollection = this.afs.collection<any>('voto', ref => ref.where('uid', '==', this.authservice.returnUID()));
         return this.votos  = this.votosCollection.snapshotChanges().pipe(
             map(actions => actions.map(
                 a => {
