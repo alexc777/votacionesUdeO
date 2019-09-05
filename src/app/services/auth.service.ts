@@ -33,6 +33,10 @@ export class AuthService {
     return this.afAuth.authState.pipe(first()).toPromise();
   }
 
+  returnUser(){
+    return this.afAuth.auth.currentUser.email;
+  }
+
   async signInWIthGoogle() {
     //reference
     const provider = new auth.GoogleAuthProvider();
