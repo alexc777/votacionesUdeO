@@ -26,6 +26,7 @@
     "core-js": "^2.5.4",
     "ng2-charts": "^2.2.5",
     "firebase": "^6.5.0",
+    "ng2-charts": "^2.2.3",
     "ngx-toastr": "^10.2.0",
     "primeicons": "^2.0.0",
     "primeng": "^7.0.0",
