@@ -2,8 +2,8 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule, ErrorHandler } from "@angular/core";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppComponent } from "./app.component";
-import { FormsModule } from "@angular/forms";
 import { HttpClientModule }    from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 //Firestore
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
@@ -17,9 +17,6 @@ import { OverlayPanelModule } from "primeng/overlaypanel";
 /* Graficos */
 import { ChartsModule } from 'ng2-charts';
 
-import { OverlayPanelModule } from "primeng/overlaypanel";
-import { AppComponent } from "./app.component";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 
 /* Rutas */
