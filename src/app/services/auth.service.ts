@@ -4,12 +4,14 @@ import { auth } from "firebase/app";
 import { AngularFireAuth } from "@angular/fire/auth";
 import { Observable, of } from "rxjs";
 import { AngularFirestore } from "@angular/fire/firestore";
-import { first, switchMap } from "rxjs/operators";
+import { first, switchMap, catchError } from "rxjs/operators";
+
 @Injectable({
   providedIn: "root"
 })
 export class AuthService {
   user$: Observable<any>;
+  errmsg: String;
   constructor(
     private afAuth: AngularFireAuth,
     private afs: AngularFirestore,
@@ -27,6 +29,10 @@ export class AuthService {
       })
     );
   }
+  getUser(): Promise<any> {
+    return this.afAuth.authState.pipe(first()).toPromise();
+  }
+
   async signInWIthGoogle() {
     //reference
     const provider = new auth.GoogleAuthProvider();
@@ -46,11 +52,7 @@ export class AuthService {
     return this.afAuth.auth
       .createUserWithEmailAndPassword(email, password)
       .then(res => {
-        window.alert("You have been succesfully reg");
         this.router.navigate(["/escritorio"]);
-      })
-      .catch(function(error) {
-        console.log(error.code);
       });
   }
 
@@ -59,9 +61,18 @@ export class AuthService {
       .signInWithEmailAndPassword(email, password)
       .then(res => {
         this.router.navigate(["/escritorio"]);
-      })
-      .catch(function(error) {
-        console.log(error.code);
       });
+  }
+
+  handleError(error) {
+    let errormsg = "";
+    if (error.error instanceof ErrorEvent) {
+      errormsg = `Error: ${error.error.message}`;
+      console.log(errormsg);
+    } else {
+      errormsg = `Error code: ${error.code} Message: ${error.message}`;
+      console.log(errormsg);
+      this.errmsg = errormsg;
+    }
   }
 }
