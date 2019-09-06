@@ -9,7 +9,8 @@ import { retry, catchError } from 'rxjs/operators';
 export class ProyectoService {
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json'
+      "Content-Type": "application/json; charset=utf-8",
+      "Authorization": "Basic NGEwMGZmMjItY2NkNy0xMWUzLTk5ZDUtMDAwYzI5NDBlNjJj"
     })
   }  
 
@@ -46,6 +47,11 @@ export class ProyectoService {
 
   public getUsuarioPorId(idUsuario:any):Observable<any>{
     return this.httpClient.get<any>('https://udeo.herokuapp.com/usuarios/'+idUsuario+'.json')
+    .pipe(retry(1),catchError(this.handleError))
+  }
+
+  public enviarPush(idProyecto:any, usuario:any, voto:any):Observable<any>{
+    return this.httpClient.get<any>('https://udeo.herokuapp.com/proyectos/'+idProyecto+'/push.json?usuario='+usuario+'&valor='+voto)
     .pipe(retry(1),catchError(this.handleError))
   }
 

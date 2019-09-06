@@ -8,7 +8,8 @@ export class Proyecto{
   public categorias:Array<any>;  
   public catedraticos:Array<any>;
   public alumnos:Array<any>;
-    
+  public tieneVoto:boolean;
+  public valoracionVoto:any;  
   constructor(){
        this.id = null;
        this.nombre = null;
@@ -18,7 +19,8 @@ export class Proyecto{
        this.categorias = [];
        this.alumnos = [];
        this.catedraticos = [];
-     
+       this.tieneVoto = false;
+       this.valoracionVoto = 0; 
     }
 
 }

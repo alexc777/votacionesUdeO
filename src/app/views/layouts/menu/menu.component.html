@@ -50,9 +50,9 @@
         </li>
       </ul>
 
-      <ul *ngIf="auth.user | async as users" class="menu_bottom">
-        <li (click)="auth.signOut()">
-          <a role="button" class="ico_exit">
+      <ul class="menu_bottom">
+        <li>
+          <a role="button" class="ico_exit" (click)="auth.signOut()">
             <p class="dnone_menut">
               Salir
             </p>

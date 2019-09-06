@@ -4,7 +4,8 @@ import { OverlayPanel } from 'primeng/overlaypanel';
 import { ProyectoService } from '../../../services/proyecto.service';
 import { Proyecto } from '../../../models/proyecto';
 import { DomSanitizer } from '@angular/platform-browser';
-
+import {AuthService} from '../../../services/auth.service';
+import {VotosService} from '../../../services/votos.service';
 @Component({
   selector: 'app-proyectos',
   templateUrl: './proyectos.component.html',
@@ -48,20 +49,31 @@ export class ProyectosComponent implements OnInit {
   /*Modelos*/
   public proyecto: Proyecto;
   proyectos: Array<Proyecto>;
+  public proyectoVotar:any;
   public proyectoSeleccionado:any;
   public galeriaTest:Array<any>;
-
-  constructor(private proyectoService: ProyectoService, private sanitizer: DomSanitizer) { }
+  public votos:any;
+  usuario:any;
+  UID:any;
+  constructor(private proyectoService: ProyectoService, private sanitizer: DomSanitizer,private authservice:AuthService,private votosService:VotosService) { }
 
   transform(image: any) {
     return this.sanitizer.bypassSecurityTrustResourceUrl(image);
   }
   ngOnInit() {
-    this.getProyectos();
+
+    this.usuario = this.authservice.returnUser();
+    this.UID = this.authservice.returnUID();
+    this.votosService.getVotos().subscribe(
+      votos =>{
+        this.votos = votos;
+        this.getProyectos();
+        console.log(votos);
+      }
+    );
+    //this.getProyectos();
     this.galeriaTest = [];
-
-    
-
+    console.log(this.usuario);
   }
 
   showModal(proyecto:any) {
@@ -77,6 +89,13 @@ export class ProyectosComponent implements OnInit {
           proyecto.alumnos = [];
           proyecto.catedraticos = [];
           proyecto.galeriaFinal = [];
+
+          this.votos.forEach(voto => {
+            if(voto.idProyecto == proyecto.id){
+              proyecto.tieneVoto = true;
+              proyecto.valoracionVoto = voto.valor;
+            }
+          });
           /*Se consume el servicio para obtener las fotografias*/
           this.proyectoService.getGaleriaProyecto(proyecto.id).subscribe(
             (result) => {
@@ -91,7 +110,7 @@ export class ProyectosComponent implements OnInit {
                 this.galeriaTest.push(foto);
                 proyecto.galeriaFinal.push(foto);
               });
-             
+
 
             }
           );
@@ -158,9 +177,24 @@ export class ProyectosComponent implements OnInit {
   openVotar(event: any, proyecto: any, panel: OverlayPanel) {
     this.panelVotar = panel;
     this.eventPanel = event;
+    console.log(proyecto);
+    this.proyectoVotar = proyecto;
     panel.toggle(event);
   }
-  votar(panel: OverlayPanel) {
+  votar(panel: OverlayPanel, valor: string) {
+    this.proyectoService.enviarPush(this.proyectoVotar.id, this.usuario, valor).subscribe(
+      result => {
+        console.log(result);
+      }
+    );
+
+    let voto:any = {};
+    voto.idProyecto = this.proyectoVotar.id;
+    voto.usuario = this.usuario;
+    voto.valor = valor;
+    voto.uid = this.UID;
+    console.log(voto);
+    this.votosService.addVoto(voto);
     panel.hide();
     console.log('votaste');
   }
