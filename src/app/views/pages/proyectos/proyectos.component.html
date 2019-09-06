@@ -113,20 +113,20 @@
                     <div class="card__title">
                       <h2>{{proyecto.nombre}}</h2>
                     </div>
-        
+
                     <div class="card__body">
                       <p>{{proyecto.descripcion}}</p>
                     </div>
-        
+
                     <div class="card__foter">
                       <button type="button" class="btn btn_proyecto" (click)="showModal(proyecto)">
                         Ver Más
                       </button>
-        
+
                       <button *ngIf="!proyecto.tieneVoto" type="button" class="btn btn_proyecto" (click)="openVotar($event,proyecto,panelVotar)">
                         Votar
                       </button>
-                     
+
                       <button class="btn btn-default" *ngIf="proyecto.tieneVoto && proyecto.valoracionVoto == 1" >
                         <img src="/assets/img/escala1.png" width="30" />
                       </button>
@@ -152,19 +152,19 @@
 
   <p-overlayPanel #panelVotar [dismissable]="true" [showCloseIcon]="true">
     <div>
-      <button class="btn btn-default" (click) ="votar(panelVotar,1)">
+      <button class="btn btn-default" (click) ="votar(panelVotar,'1')">
         <img src="/assets/img/escala1.png" width="30" />
       </button>
-      <button class="btn btn-default" (click) ="votar(panelVotar,2)">
+      <button class="btn btn-default" (click) ="votar(panelVotar,'2')">
         <img src="/assets/img/escala2.png" width="30" />
       </button>
-      <button class="btn btn-default" (click) ="votar(panelVotar,3)">
+      <button class="btn btn-default" (click) ="votar(panelVotar,'3')">
         <img src="/assets/img/escala3.png" width="30" />
       </button>
-      <button class="btn btn-default" (click) ="votar(panelVotar,4)">
+      <button class="btn btn-default" (click) ="votar(panelVotar,'4')">
         <img src="/assets/img/escala4.png" width="30" />
       </button>
-      <button class="btn btn-default" (click) ="votar(panelVotar,5)">
+      <button class="btn btn-default" (click) ="votar(panelVotar,'5')">
         <img src="/assets/img/escala5.png" width="30" />
       </button>
     </div>

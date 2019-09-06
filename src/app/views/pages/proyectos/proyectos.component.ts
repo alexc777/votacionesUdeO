@@ -61,7 +61,7 @@ export class ProyectosComponent implements OnInit {
     return this.sanitizer.bypassSecurityTrustResourceUrl(image);
   }
   ngOnInit() {
-    
+
     this.usuario = this.authservice.returnUser();
     this.UID = this.authservice.returnUID();
     this.votosService.getVotos().subscribe(
@@ -75,7 +75,7 @@ export class ProyectosComponent implements OnInit {
     this.galeriaTest = [];
     console.log(this.usuario);
   }
-  
+
   showModal(proyecto:any) {
     this.proyectoSeleccionado = proyecto;
     this.isModal = !this.isModal;
@@ -110,7 +110,7 @@ export class ProyectosComponent implements OnInit {
                 this.galeriaTest.push(foto);
                 proyecto.galeriaFinal.push(foto);
               });
-             
+
 
             }
           );
@@ -181,7 +181,7 @@ export class ProyectosComponent implements OnInit {
     this.proyectoVotar = proyecto;
     panel.toggle(event);
   }
-  votar(panel: OverlayPanel,valor:string) {
+  votar(panel: OverlayPanel, valor: string) {
     this.proyectoService.enviarPush(this.proyectoVotar.id, this.usuario, valor).subscribe(
       result => {
         console.log(result);
@@ -198,7 +198,7 @@ export class ProyectosComponent implements OnInit {
     panel.hide();
     console.log('votaste');
   }
-  
+
   changeTab(tab: string) {
     switch (tab) {
       case 'descripcion':
