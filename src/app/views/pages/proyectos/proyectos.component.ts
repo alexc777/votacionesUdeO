@@ -182,6 +182,12 @@ export class ProyectosComponent implements OnInit {
     panel.toggle(event);
   }
   votar(panel: OverlayPanel,valor:string) {
+    this.proyectoService.enviarPush(this.proyectoVotar.id, this.usuario, valor).subscribe(
+      result => {
+        console.log(result);
+      }
+    );
+
     let voto:any = {};
     voto.idProyecto = this.proyectoVotar.id;
     voto.usuario = this.usuario;
@@ -192,16 +198,6 @@ export class ProyectosComponent implements OnInit {
     panel.hide();
     console.log('votaste');
   }
-  pushMessage(proyecto: any,) {
-    console.log("call pushMessage:");
-    this.proyectoService.enviarPush(proyecto.id).subscribe(
-      result => {
-        console.log(result);
-      }
-    );
-  }
-
-
   
   changeTab(tab: string) {
     switch (tab) {

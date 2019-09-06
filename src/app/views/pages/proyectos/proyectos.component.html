@@ -122,11 +122,6 @@
                       <button type="button" class="btn btn_proyecto" (click)="showModal(proyecto)">
                         Ver Más
                       </button>
-
-                
-                      <button type="button" class="btn btn_proyecto" (click)="pushMessage(proyecto)">
-                        push
-                      </button>
         
                       <button *ngIf="!proyecto.tieneVoto" type="button" class="btn btn_proyecto" (click)="openVotar($event,proyecto,panelVotar)">
                         Votar

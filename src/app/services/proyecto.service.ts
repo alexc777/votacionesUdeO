@@ -50,9 +50,8 @@ export class ProyectoService {
     .pipe(retry(1),catchError(this.handleError))
   }
 
-
-  public enviarPush(idProyecto:any):Observable<any>{
-    return this.httpClient.get<any>('https://udeo.herokuapp.com/proyectos/'+idProyecto+'/push.json')
+  public enviarPush(idProyecto:any, usuario:any, voto:any):Observable<any>{
+    return this.httpClient.get<any>('https://udeo.herokuapp.com/proyectos/'+idProyecto+'/push.json?usuario='+usuario+'&valor='+voto)
     .pipe(retry(1),catchError(this.handleError))
   }
 
