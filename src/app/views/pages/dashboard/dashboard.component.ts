@@ -1,25 +1,32 @@
-import { Component, ViewChild  } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Color, BaseChartDirective, Label } from 'ng2-charts';
 import * as pluginAnnotations from 'chartjs-plugin-annotation';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 import { AuthService } from "../../../services/auth.service";
+import { GraficasService } from '../../../services/graficas.service';
+import { VotosService } from '../../../services/votos.service';
+import { ProyectoService } from '../../../services/proyecto.service';
+import { observable } from 'rxjs';
+import * as _ from 'lodash';
 
 @Component({
   selector: "app-dashboard",
   templateUrl: "./dashboard.component.html",
-  styleUrls: ["./dashboard.component.scss"]
+  styleUrls: ["./dashboard.component.scss"],
+  providers: [GraficasService]
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
 
-  public lineChartData: ChartDataSets[]  = [
+  public lineChartData: ChartDataSets[] = [
     { data: [65, 59, 80, 81, 56, 55, 40], label: 'Robots' },
     { data: [28, 48, 40, 19, 86, 27, 90], label: 'Van de Graff' },
-    { data: [180, 480, 770, 90, 1000, 270, 400], label: 'Motores'}
+    { data: [180, 480, 770, 90, 1000, 270, 400], label: 'Motores' }
   ];
-
+  proyectos: Array<any>;
   public lineChartLabels: Label[] = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio'];
-
+  data: any;
+  dataGrafica: any;
   public lineChartOptions: (ChartOptions & { annotation: any }) = {
     responsive: true,
     scales: {
@@ -124,7 +131,9 @@ export class DashboardComponent {
   public barChartOptions: ChartOptions = {
     responsive: true,
     // We use these empty structures as placeholders for dynamic theming.
-    scales: { xAxes: [{}], yAxes: [{}] },
+    scales: { xAxes: [{
+      
+    }], yAxes: [{}] },
     plugins: {
       datalabels: {
         anchor: 'end',
@@ -133,17 +142,90 @@ export class DashboardComponent {
     }
   };
 
-  public barChartLabels: Label[] = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+  public barChartLabels: Label[] = [''];
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
   public barChartPlugins = [pluginDataLabels];
 
   public barChartData: ChartDataSets[] = [
-    { data: [65, 59, 80, 81, 56, 55, 40], label: 'Robots' },
-    { data: [28, 48, 40, 19, 86, 27, 90], label: 'Van de Graff' }
+    { data: [0], label: '' }
   ];
+  
+  ngOnInit() {
+    this.dataGrafica = {};
+    this.dataGrafica.labels = ['Votaciones'];
+    this.dataGrafica.datasets = [];
+    this.data = {};
+    /*this.data = {
+      labels: ['January'],
+      datasets: [
+        {
+          label: 'My First dataset',
+          backgroundColor: '#42A5F5',
+          borderColor: '#1E88E5',
+          data: [65, 59, 80, 81, 56, 55, 40]
+        },
+        {
+          label: 'My Second dataset',
+          backgroundColor: '#42A5F5',
+          borderColor: '#7CB342',
+          data: [28, 48, 40, 19, 86, 27, 90]
+        },
+        {
+          label: 'My First datasetsdasdsadasd',
+          backgroundColor: '#42A5F5',
+          borderColor: '#1E88E5',
+          data: [65, 59, 80, 81, 56, 55, 40]
+        }
+      ]
+    }*/
 
-  constructor() { }
+    this.graficaService.getVotosGenerales().subscribe(
+      votos => {
+        this.barChartData = [
+          { data: [0], label: '' }
+        ];
+        this.proyectoService.getProyectos().subscribe(
+          result => {
+            this.proyectos = result;
+            //console.log(this.proyectos);
+            console.log(votos);
+            this.proyectos.forEach(proyecto => {
+              //console.log(proyecto);
+              proyecto.total = 0;
+              votos.forEach(voto => {
+                if (proyecto.id == voto.idProyecto) {
+                  proyecto.total = +proyecto.total + voto.valor;
+                  console.log(proyecto.total);
+                }
+
+              });
+              let data:any = {};
+              
+              data.label = proyecto.nombre;
+              data.backgroundColor = '#42A5F5';
+              data.borderColor = '#1E88E5';
+              data.data = [proyecto.total];
+              let databar:any = {};
+              databar.data = [proyecto.total];
+              databar.label =  proyecto.nombre;
+              databar.backgroundColor = ['#'+(Math.random()*0xFFFFFF<<0).toString(16)];
+              this.barChartData.push(databar);
+              this.dataGrafica.datasets.push(data);
+              //{ data: [65], label: 'Robotssdas' },
+            });
+            console.log(this.dataGrafica);
+            //this.data = new Object();
+            //this.data = this.dataGrafica;
+          }
+        );
+      }
+    );
+  }
+  constructor(private graficaService: GraficasService,
+    private proyectoService: ProyectoService,
+    private votosService: VotosService) { }
+
 
   // events
   public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
