@@ -103,6 +103,16 @@
   }
 }
 
+.ico_about {
+  background: url('/assets/img/ico-info.svg') no-repeat 15px center;
+  background-size: 18px;
+
+  &:hover {
+    background: url('/assets/img/ico-infob.svg') no-repeat 15px center;
+    background-size: 18px;
+  }
+}
+
 .ico_exit {
   background: url('/assets/img/ico-exit.svg') no-repeat 15px center;
   background-size: 18px;
