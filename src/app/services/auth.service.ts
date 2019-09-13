@@ -33,11 +33,11 @@ export class AuthService {
     return this.afAuth.authState.pipe(first()).toPromise();
   }
 
-  returnUser(){
+  returnUser() {
     return this.afAuth.auth.currentUser.email;
   }
 
-  returnUID(){
+  returnUID() {
     return this.afAuth.auth.currentUser.uid;
   }
 
