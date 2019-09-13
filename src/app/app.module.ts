@@ -29,6 +29,7 @@ import { ProyectosComponent } from "./views/pages/proyectos/proyectos.component"
 import { LoginComponent } from "./views/auth/login/login.component";
 import { ToastrModule } from "ngx-toastr";
 import { LoginErrorHndler } from "./app.handleErrors";
+import { AboutComponent } from './views/pages/about/about.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { LoginErrorHndler } from "./app.handleErrors";
     DashboardComponent,
     MenuComponent,
     ProyectosComponent,
-    LoginComponent
+    LoginComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

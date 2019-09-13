@@ -119,12 +119,12 @@
                     </div>
 
                     <div class="card__foter">
-                      <button type="button" class="btn btn_proyecto" (click)="showModal(proyecto)">
-                        Ver Más
-                      </button>
-
                       <button *ngIf="!proyecto.tieneVoto" type="button" class="btn btn_proyecto" (click)="openVotar($event,proyecto,panelVotar)">
                         Votar
+                      </button>
+
+                      <button type="button" class="btn btn_proyecto" (click)="showModal(proyecto)">
+                        Ver Más
                       </button>
 
                       <button class="btn btn-default" *ngIf="proyecto.tieneVoto && proyecto.valoracionVoto == 1" >
