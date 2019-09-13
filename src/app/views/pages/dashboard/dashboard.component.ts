@@ -18,7 +18,9 @@ import * as _ from "lodash";
   styleUrls: ["./dashboard.component.scss"],
   providers: [GraficasService]
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, OnDestroy {
+    //unsubscribe global
+    ngUnsubscribe: Subject<void> = new Subject();
   public lineChartData: ChartDataSets[] = [
     { data: [65, 59, 80, 81, 56, 55, 40], label: "Robots" },
     { data: [28, 48, 40, 19, 86, 27, 90], label: "Van de Graff" },
