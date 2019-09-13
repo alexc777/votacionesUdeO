@@ -37,6 +37,7 @@
       li {
         float: left;
         width: 100%;
+        cursor: pointer;
 
         &:hover {
           color: var(--blanco);
@@ -98,6 +99,16 @@
 
   &:hover {
     background: url('/assets/img/ico-votosb.svg') no-repeat 15px center;
+    background-size: 18px;
+  }
+}
+
+.ico_about {
+  background: url('/assets/img/ico-info.svg') no-repeat 15px center;
+  background-size: 18px;
+
+  &:hover {
+    background: url('/assets/img/ico-infob.svg') no-repeat 15px center;
     background-size: 18px;
   }
 }

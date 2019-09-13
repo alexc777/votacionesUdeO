@@ -51,6 +51,17 @@ export class LoginComponent implements OnInit {
     return this.userForm.controls;
   }
 
+  getFunGoogle() {
+    this.auth.signInWIthGoogle().catch(error => {
+      let mssg;
+      mssg = this.validateCodes(error.code);
+      if (mssg) {
+        this.toastr.error(mssg);
+      } else {
+        console.log(`Codigo ${error.code} Mensaje ${error.message}`);
+      }
+    });
+  }
   getNgSubmitMethod(email, pass) {
     this.submitted = true;
     if (this.userForm.invalid) {
@@ -101,6 +112,11 @@ export class LoginComponent implements OnInit {
       code: "auth/email-already-in-use",
       message:
         "La dirección de correo electrónico ya está siendo utilizada por otra cuenta."
+    },
+    {
+      code: "auth/popup-closed-by-user",
+      message:
+        "La ventana fue cerrada antes de completar el proceso de autentificacion."
     }
   ];
 }
