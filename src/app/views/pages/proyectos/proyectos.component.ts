@@ -202,6 +202,7 @@ export class ProyectosComponent implements OnInit, OnDestroy {
     panel.toggle(event);
   }
   votar(panel: OverlayPanel, valor: string) {
+    this.proyectoVotar.tieneVoto = true;
     this.proyectoService
       .enviarPush(this.proyectoVotar.id, this.usuario, valor)
       .pipe(takeUntil(this.ngUnsubscribe))
@@ -217,7 +218,7 @@ export class ProyectosComponent implements OnInit, OnDestroy {
     console.log(voto);
     this.votosService.addVoto(voto);
     panel.hide();
-    console.log("votaste");
+    //console.log("votaste");
   }
 
   changeTab(tab: string) {

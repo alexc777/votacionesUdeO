@@ -221,7 +221,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
               proyecto.total = 0;
               votos.forEach(voto => {
                 if (proyecto.id == voto.idProyecto) {
-                  proyecto.total = +proyecto.total + voto.valor;
+                  proyecto.total = parseInt(proyecto.total) + parseInt(voto.valor);
                   console.log(proyecto.total);
                 }
               });
