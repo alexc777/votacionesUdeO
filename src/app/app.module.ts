@@ -15,6 +15,9 @@ import { GalleriaModule } from "primeng/galleria";
 
 import { OverlayPanelModule } from "primeng/overlaypanel";
 
+//Material
+import {MatChipsModule} from '@angular/material/chips';
+
 /* Graficos */
 import { ChartsModule } from "ng2-charts";
 
@@ -54,7 +57,8 @@ import { AboutComponent } from "./views/pages/about/about.component";
       timeOut: 10000,
       positionClass: "toast-top-right",
       preventDuplicates: true
-    })
+    }),
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

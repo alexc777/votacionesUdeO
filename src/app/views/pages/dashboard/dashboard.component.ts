@@ -151,19 +151,25 @@ export class DashboardComponent implements OnInit, OnDestroy {
   ];
 
   public barChartOptions: ChartOptions = {
-    responsive: true,
-    // We use these empty structures as placeholders for dynamic theming.
-    scales: { xAxes: [{}], yAxes: [{}] },
-    plugins: {
-      datalabels: {
-        anchor: "end",
-        align: "end"
+    maintainAspectRatio: false,
+  scales: {
+    yAxes: [{
+      stacked: false,
+      gridLines: {
+        display: false,
+        color: "rgba(255,99,132,0.2)"
       }
-    }
-  };
+    }],
+    xAxes: [{
+      gridLines: {
+        display: false
+      }
+    }]
+  }
+};
 
   public barChartLabels: Label[] = [""];
-  public barChartType: ChartType = "bar";
+  public barChartType: ChartType = "horizontalBar";
   public barChartLegend = true;
   public barChartPlugins = [pluginDataLabels];
 
@@ -227,7 +233,14 @@ export class DashboardComponent implements OnInit, OnDestroy {
               data.data = [proyecto.total];
               let databar: any = {};
               databar.data = [proyecto.total];
-              databar.label = proyecto.nombre;
+              let size = proyecto.nombre.length;
+              if(size > 20){
+                databar.label = proyecto.nombre.substring(0, size -(size/2))+'...';
+              }else if(size > 10){
+                databar.label = proyecto.nombre.substring(0, size -((size/2))/2)+'...';
+              }else{
+                databar.label = proyecto.nombre+'...';
+              }
               databar.backgroundColor = [
                 "#" + ((Math.random() * 0xffffff) << 0).toString(16)
               ];

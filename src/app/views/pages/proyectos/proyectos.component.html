@@ -12,7 +12,7 @@
 
   <div id="area_ID" *ngIf="isModal" [@inOutAnimation]>
     <div class="header_area">
-      <h1>Proyecto Name</h1>
+      <h1>{{proyectoSeleccionado.nombre}}</h1>
 
       <a class="ico_salir" (click)="showModal()"></a>
     </div>
@@ -40,6 +40,13 @@
         <div class="ed-item s-100 m-85">
           <div class="content_detalle">
             <div class="descripcion" *ngIf="descripcion">
+              <div id="chipsCategorias" style="margin-bottom: 2%" *ngIf="proyectoSeleccionado.categorias">
+                  <mat-chip-list *ngFor="let categoria of proyectoSeleccionado.categorias">
+                      <mat-chip color="primary" selected>{{categoria.nombre}}</mat-chip>
+                    </mat-chip-list>
+               
+              </div>
+              
               <p>
                 {{proyectoSeleccionado.descripcion}}
               </p>
