@@ -11,3 +11,15 @@
     padding: 0 !important;
   }
 }
+
+body .ui-corner-all {
+  @include to(m) {
+    width: 100% !important;
+  }
+}
+
+.g_spv {
+  @include to(m) {
+    width: 100% !important;
+  }
+}

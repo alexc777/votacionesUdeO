@@ -74,8 +74,8 @@
               <div class="ed-item ed-container full" *ngFor="let catedratico of proyectoSeleccionado.catedraticos">
                 <div class="card_docentes">
                   <div class="card_item">
-                    <div class="card_image" (click)="showModal()">
-                        <img [src]="transform(catedratico.fotografia)" alt="error" >
+                    <div class="card_image">
+                      <img [src]="transform(catedratico.fotografia)" alt="error" >
                     </div>
 
                     <div class="card__content">
@@ -92,8 +92,8 @@
               </div>
             </div>
 
-            <div class="descripcion" *ngIf="galeria" >
-                <p-galleria [images]="proyectoSeleccionado.galeriaFinal" panelWidth="500" panelHeight="313" [showCaption]="true"></p-galleria>
+            <div class="content_galleria" *ngIf="galeria" >
+              <p-galleria [images]="proyectoSeleccionado.galeriaFinal" class="g_spv" panelWidth="500" panelHeight="313" [showCaption]="true"></p-galleria>
             </div>
           </div>
         </div>
@@ -115,7 +115,9 @@
                     </div>
 
                     <div class="card__body">
-                      <p>{{proyecto.descripcion}}</p>
+                      <p>{{ (proyecto.descripcion.length > 200) ?
+                            (proyecto.descripcion | slice:0:200) + '...' :
+                            (proyecto.descripcion) }}</p>
                     </div>
 
                     <div class="card__foter">
