@@ -70,6 +70,9 @@
           <a *ngIf="aRoute" routerLink="/registro" routerLinkActivate="activate"
             >¿Aun no tienes cuenta? Regístrate</a
           >
+          <a *ngIf="!aRoute" routerLink="/login" routerLinkActivate="activate"
+            >¿Ya tienes cuenta? Inicia sesión</a
+          >
           <div class="form-group row">
             <div class="col-sm-12">
               <button type="submit" class="btn btn_login">Ingresar</button>
